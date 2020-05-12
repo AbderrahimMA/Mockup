@@ -1,0 +1,6 @@
+#langeurDeOtp: 6
+#otpnumbers: 0123456789
+#Small_chars: abcdefghijklmnopqrstuvwxyz
+#Capital_chars: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+#valuesOfOTP: ${Capital_chars}${Small_chars}${numbers}
+#valuesOfOTP: ${otpnumbers}
