@@ -1,7 +1,9 @@
+  
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: hostname-config
   namespace: default
 data:
-  postgres_host : jdbc:postgresql://10.110.236.127:5432/citizendb
+# ###### => kubectl get svc postgres -o jsonpath="{.spec.clusterIP}"
+  postgres_host : jdbc:postgresql://########:5432/citizendb?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
