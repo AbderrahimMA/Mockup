@@ -1,0 +1,15 @@
+
+# For Java 8
+FROM openjdk:8-jdk-alpine
+
+# Set the working directory.
+WORKDIR /AppointmentManagement
+
+ARG JAR_FILE=target/AppointmentManagement-0.0.1-SNAPSHOT.jar
+
+COPY ${JAR_FILE} /AppointmentManagement/app.jar
+
+EXPOSE 8080/tcp
+
+# java -jar /AppointmentManagement/app
+ENTRYPOINT ["java","-jar","/AppointmentManagement/app.jar"]

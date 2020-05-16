@@ -1,0 +1,42 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mockup-app1
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: mockup-app1
+      labels:
+        app: mockup-app1
+    spec:
+      containers:
+      - name: mockup-app1
+        env:
+        
+          - name: SPRING_DATASOURCE_USERNAME
+            valueFrom:
+              configMapKeyRef:
+                name: postgres-config
+                key: postgres_user
+                
+          - name: SPRING_DATASOURCE_PASSWORD
+            valueFrom:
+              configMapKeyRef:
+                name: postgres-config
+                key: postgres_password
+
+          - name: SPRING_DATASOURCE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: hostname-config
+                key: postgres_host 
+                
+          - name: SPRING_JPA_HIBERNATE_DDL-AUTO
+            valueFrom:
+              configMapKeyRef:
+                name: postgres-config
+                key: postgres_create    
+                
+        image:  59911995/citizenmanagement:v1
