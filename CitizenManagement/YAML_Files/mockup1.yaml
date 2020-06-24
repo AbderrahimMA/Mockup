@@ -1,18 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: mockup-app1
+  name: citizenmanagement
   namespace: default
 spec:
   replicas: 1
   template:
     metadata:
-      name: mockup-app1
+      name: citizenmanagement
       labels:
-        app: mockup-app1
+        app: citizenmanagement
     spec:
       containers:
-      - name: mockup-app1
+      - name: citizenmanagement
         env:
         
           - name: SPRING_DATASOURCE_USERNAME
@@ -31,12 +31,19 @@ spec:
             valueFrom:
               configMapKeyRef:
                 name: hostname-config
-                key: postgres_host 
+                key: postgres_host    
                 
-          - name: SPRING_JPA_HIBERNATE_DDL-AUTO
-            valueFrom:
-              configMapKeyRef:
-                name: postgres-config
-                key: postgres_create    
-                
-        image:  59911995/citizenmanagement:v1
+        image:  59911995/citizenmanagement:v2
+        
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: citizensvc
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8082
+  selector:
+    app: citizenmanagement

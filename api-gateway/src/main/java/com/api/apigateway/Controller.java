@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 	@RequestMapping("/test")
 	public String getToken() {
-		return "hi test ";
+		return "hi from test ";
 	}
 }

@@ -1,10 +1,10 @@
 package org.sid.repository;
 
-import org.sid.model.Citizen;
+import org.sid.model.Appointment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CitizenRepository extends JpaRepository<Citizen, Long>{
+public interface AppointmentRepository extends JpaRepository<Appointment, Long>{
 	
 }

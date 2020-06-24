@@ -57,7 +57,7 @@ public class CitizenController {
 		
 	}
 	
-	@PostMapping("/citizens/update")
+	@PostMapping("/citizens/update/{id}")
 	public ResponseEntity<Citizen> updateCitizen(@PathVariable(value = "id") Long citizenId,
 			@Valid @RequestBody Citizen citizenDetails) throws ResourceNotFoundException{
 		Citizen citizen = citizenRepository.findById(citizenId)

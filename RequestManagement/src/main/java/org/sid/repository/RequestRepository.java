@@ -1,10 +1,10 @@
 package org.sid.repository;
 
-import org.sid.model.Citizen;
+import org.sid.model.Request;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CitizenRepository extends JpaRepository<Citizen, Long>{
+public interface RequestRepository extends JpaRepository<Request, Long>{
 	
 }

@@ -9,7 +9,7 @@ ARG JAR_FILE=target/RequestManagement-0.0.1-SNAPSHOT.jar
 
 COPY ${JAR_FILE} /RequestManagement/app.jar
 
-EXPOSE 8080/tcp
+EXPOSE 8083/tcp
 
 # java -jar /RequestManagement/app
 ENTRYPOINT ["java","-jar","/RequestManagement/app.jar"]
